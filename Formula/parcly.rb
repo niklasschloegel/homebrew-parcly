@@ -5,21 +5,25 @@
 class Parcly < Formula
   desc "Parcly is a CLI app for tracking parcels."
   homepage ""
-  version "1.0.11"
+  version "1.0.14"
   license "Apache-2.0"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.11/parcly_1.0.11_macOS-64bit.tar.gz"
-    sha256 "36cc450d019459d16e9a2505ae4f9ef24a62ad97b11acb17cd07caa6eccb971b"
+    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.14/parcly_1.0.14_macOS_64bit.tar.gz"
+    sha256 "1160702a4c6d8f13530cc613d251610c1c96b7ae26c1dff81796657fdb6f8a94"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.11/parcly_1.0.11_Linux-64bit.tar.gz"
-    sha256 "132b2759c88ffc95f989a608ec6af490b80a419d9e74668b581c140a912adebf"
+    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.14/parcly_1.0.14_Linux_64bit.tar.gz"
+    sha256 "c878b033561f96b0004bef1e0cd3f72593330661d5c56e7f1ce07025741b208a"
+  end
+  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.14/parcly_1.0.14_Linux_ARMv6.tar.gz"
+    sha256 "a774abcce34a5616d744c794a25fc52d3aabdfc6829b824afdf98f837416719c"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.11/parcly_1.0.11_Linux-ARM64.tar.gz"
-    sha256 "1749775894be71178e03674f9514a60c23a9ad562170128e4f48595fc494ac30"
+    url "https://github.com/niklasschloegel/parcly/releases/download/v1.0.14/parcly_1.0.14_Linux_ARM64.tar.gz"
+    sha256 "e3994f3a89c68770d619bac91596d25c5a316837ab6348b9cd00423d344ab2a7"
   end
 
   depends_on "git"
